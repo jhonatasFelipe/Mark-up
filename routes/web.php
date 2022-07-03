@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomsController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,15 @@ Route::prefix('/rooms')->group(function(){
     Route::get('/delete/{id}', [RoomsController::class,'delete'])->name('RoomsDelete');
     Route::post('/update/{id}', [RoomsController::class,'update'])->name('RoomsUpdate');
     Route::post('/insert', [RoomsController::class,'insert'])->name('RoomsInsert');
+    Route::get('/{id}', [RoomsController::class,'byId'])->name('RoomsById');
+});
+
+Route::prefix('/users')->group(function(){
+    Route::get('/', [UserController::class,'index'])->name('UsersList');
+    Route::get('/register', [UserController::class,'create'])->name('UsersRegister');
+    Route::post('/insert', [UserController::class,'insert'])->name('UsersInsert');
+    Route::get('/{id}', [UserController::class,'byId'])->name('UsersById');
+    Route::post('/update/{id}', [UserController::class,'update'])->name('UsersUpdate');
+    
 });
 

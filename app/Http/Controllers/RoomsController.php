@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Models\Room;
-use Illuminate\Support\Facades\Route;
 
 class RoomsController extends Controller
 {
@@ -37,7 +36,7 @@ class RoomsController extends Controller
             $Room->fill($req->all());
             $Room->save();
             return view('rooms.delete',['sucess'=>true]);
-        }catch(Excepition $err){
+        }catch(\Exception $err){
             return view('rooms.delete',['sucess'=>false]);
         }
     }

@@ -23,6 +23,8 @@ class User extends Authenticatable
         'password',
     ];
 
+    protected $table = 'user';
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -32,6 +34,8 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public $timestamps = false;
 
     /**
      * The attributes that should be cast.
