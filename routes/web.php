@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookingController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,11 @@ Route::prefix('/users')->group(function(){
     Route::post('/insert', [UserController::class,'insert'])->name('UsersInsert');
     Route::get('/{id}', [UserController::class,'byId'])->name('UsersById');
     Route::post('/update/{id}', [UserController::class,'update'])->name('UsersUpdate');
-    
+});
+
+Route::prefix('/booking')->group(function(){
+    Route::get('/listTimes/{room}', [BookingController::class,'ListTimes'])->name('ListTimes');
+    Route::get('/book',[BookingController::class, 'insert'])->name('Book');
+    Route::get('/unbook',[BookingController::class,'delete'])->name('unbook');
 });
 

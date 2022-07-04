@@ -20,8 +20,13 @@ class RoomsController extends Controller
     }
 
     public function insert(Request $req){
-        $Room = Room::create($req->all());
-        $Room->save();
+
+        $room = new Room();
+        $room->name = $req->name;
+        $room->start_time = $req->start_time.":00";
+        $room->end_time = $req->end_time.":00";
+        $room->obs = $req->obs;
+        $room->save();
         return redirect()->route('RoomsList');
     }
 

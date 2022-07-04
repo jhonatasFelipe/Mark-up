@@ -10,5 +10,7 @@
         {{$sala->obs}}
     </div>
 <a href="{{route('RoomsDelete',['id' => $sala->id])}}">Excluir</a>
+<a href="{{route('ListTimes',['room' => $sala->id])}}">Ver Horários dispoíveis</a>
+
 @endforeach
 <a href="{{route('RoomsCreate')}}">Nova Sala</a>
