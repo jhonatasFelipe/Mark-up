@@ -1,0 +1,55 @@
+
+.estrutura{
+    display: flex;
+    flex-direction: column;
+    .cabecalho{
+        height:150px;
+        background-color: $primary-color;
+        border-radius: 10px;
+        box-shadow: $shadow-color 1px 1px 10px;
+    }
+    .divLayout{
+        display: flex;
+        border-radius: 10px;
+        box-shadow: $shadow-color 1px 1px 10px;
+    }
+    &>div{
+        display: flex;
+        justify-content: space-between;
+        width: 99%;
+        padding: 10px;
+        &>div:first-of-type{
+            @extend .divLayout;
+            min-width:100px;
+            width: 10%;
+            min-height:530px;
+            margin-right: 10px;
+        }
+        
+        &>div:last-of-type{
+            @extend .divLayout;
+            width: 89%;
+            flex-direction: column;
+            padding: 10px;
+        }
+      }
+  }
+
+  @media screen and (max-width:740px) {
+    .estrutura{
+        &>div{
+            justify-content: center;
+            padding: 10px 0;
+            width: 100%;
+            &>div:first-of-type{
+               display: none;
+            }
+            
+            &>div:last-of-type{
+                width: 100%;
+                
+            }
+        } 
+    }
+  }
+

@@ -9,14 +9,14 @@ use App\Models\Room;
 class RoomsController extends Controller
 {
     public function Index(){
-        return view('rooms.index', [
+        return view('pages.rooms.index', [
             'nome' => 'jhonatas Felipe',
             'salas' => Room::all()
         ]);
     }
 
     public  function create(){
-        return view('rooms.nova-sala');
+        return view('pages.rooms.nova-sala');
     }
 
     public function insert(Request $req){
@@ -40,9 +40,9 @@ class RoomsController extends Controller
             $Room = Room::find($id);
             $Room->fill($req->all());
             $Room->save();
-            return view('rooms.delete',['sucess'=>true]);
+            return view('pages.rooms.delete',['sucess'=>true]);
         }catch(\Exception $err){
-            return view('rooms.delete',['sucess'=>false]);
+            return view('pages.rooms.delete',['sucess'=>false]);
         }
     }
 }
