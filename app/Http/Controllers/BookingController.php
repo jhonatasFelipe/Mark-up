@@ -49,7 +49,7 @@ class BookingController extends Controller
         }
         $room = Room::find($room);
         $times = TimesGenerator::getTimes($room, $data);
-        return view('booking.list-times', [
+        return view('pages.booking.list-times', [
             'times' => $times,
             'room' => $room,
             'user' => 1,
