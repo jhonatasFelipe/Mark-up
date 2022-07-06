@@ -7,14 +7,13 @@ use App\Models\Times;
 use App\Models\Room;
 
 Class TimesGenerator {
-
     static public function  getTimes(Room $room,\DateTime $date): Array{
         $timeZone = new \DateTimeZone('America/Sao_Paulo');
         $date->setTimezone($timeZone);
         $bookings = Booking::where('time','>=', $date)->where('room',$room->id)->get();
         $times = [];
-        $startTime =  new \DateTime($date->format('Y-M-d').' '.$room->start_time,$timeZone);
-        $endTime =  new \DateTime($date->format('Y-M-d').' '.$room->end_time, $timeZone);
+        $startTime =  new \DateTime($date->format('Y-m-d').' '.$room->start_time,$timeZone);
+        $endTime =  new \DateTime($date->format('Y-m-d').' '.$room->end_time, $timeZone);
 
         for($i = $startTime; $i < $endTime; $i->modify('+1 hour'))
         {
@@ -36,6 +35,10 @@ Class TimesGenerator {
             array_push($times,$time);
         }
         return $times;
+    }
+
+    private function hasBookingForDate(){
+
     }
 
 }

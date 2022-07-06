@@ -15,7 +15,6 @@ class Times{
         $this->avaible = $avaible;
     }
 
-
     public function getStart():\DateTime
     {
         return $this->start;

@@ -24,6 +24,8 @@
   width: 10%;
   min-height: 530px;
   margin-right: 10px;
+  flex-direction: column;
+  padding: 10px;
 }
 .estrutura > div > div:last-of-type {
   width: 89%;

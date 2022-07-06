@@ -12,7 +12,10 @@
     <div class="estrutura">
         <header class="cabecalho"></header>
         <div>
-            <div>menu</div>
+            <div>
+                <p><a href="{{Route('RoomsList')}}">Salas</a></p>
+                <p><a href="{{Route('UsersList')}}">Usuários</a></p>
+            </div>
             <div>
                 {{ $slot }}
             </div>

@@ -1,4 +1,9 @@
-@foreach ($users as $user)
-<p>{{$user->name}}</p>
+<x-layout>
+
+    @foreach ($users as $user)
+        <p>{{$user->name}}</p>
     
-@endforeach
+    @endforeach
+
+    <a href="{{Route('UsersRegister')}}">Cadastrar usuário</a>
+</x-layout>

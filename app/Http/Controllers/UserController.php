@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function Index(){
-        return view('users.list-users', [
+        return view('pages.users.list-users', [
             'users' => User::all()
         ]);
     }
 
     public  function create(){
-        return view('users.register');
+        return view('pages.users.register');
     }
 
     public function insert(Request $req){
@@ -25,7 +25,7 @@ class UserController extends Controller
 
     public function byId($id){
         $user = User::find($id);
-        return view('users.user', ['user' => $user]);
+        return view('pages.users.user', ['user' => $user]);
     }
 
     public function update(Request $req, $id){

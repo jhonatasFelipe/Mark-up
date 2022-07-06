@@ -30,7 +30,7 @@ class RoomsController extends Controller
         return redirect()->route('RoomsList');
     }
 
-    public function delete (Request $req, $id){
+    public function delete ($id){
         Room::destroy($id);
         return redirect()->route('RoomsList');
     }
